@@ -1,0 +1,31 @@
+este documento consiste no meu ponto de vista em relação aos padrões de arquitetura do optaplanner.
+o meu ponto de vista tem em consideração os seguintes padrões que foram dados na última aula:
+multi-tier, inversion of control, soa, client-server, mvc, mvp, mvvm, cloud computing, domain driven design.
+
+
+
+
+no meu ponto de vista os seguintes padrões são os que considero que possivelmente estão ser usados pelo optalanner:
+  1. Multi-Tier
+  2. Inversion Of Control
+  3. Client Server
+  4. Coud Computing ???
+  5. Domain Driven Design
+  
+Para ja começarei pelo aquele que me parece ser o mais provavel:
+
+1. Inversion Of Control (sub-patterns: dependency injectio; service locator)
+1.1 descrição do padrão
+é um padrão arquitetural usado para desacopular components e camadas num sistema. 
+este distribui o controlo do programa para uma framework em vez do utilizador.
+segundo a microsoft o problema associado à criação deste padrão é o seguinte - quando existem dependencias em serviços ou components cuja implementação é especificada em tempo-real.
+
+1.2 padrão no optaplanner
+
+visto que o optaplanner consiste numa framework da qual o utilizador utiliza para chegar a uma solução ótima e
+o utilizador tem de definir as classes de modelo, utilizando as anotações do optaplanner. ainda tem de definir as condições, a classe de solução, o método de cáculo do score (quanto maior o score, melhor é a solução) implementando uma interface.
+
+o optaplanner concentra em si o controlo do programa, apesar do utilizador definir as instruções e algoritmos.
+
+
+
