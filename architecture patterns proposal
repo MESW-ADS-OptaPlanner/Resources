@@ -1,31 +1,88 @@
 este documento consiste no meu ponto de vista em relação aos padrões de arquitetura do optaplanner.
-o meu ponto de vista tem em consideração os seguintes padrões que foram dados na última aula:
-multi-tier, inversion of control, soa, client-server, mvc, mvp, mvvm, cloud computing, domain driven design.
+o meu ponto de vista tem em consideração os seguintes padrões que foram dados na última aula e os recolhi da net:
+multi-tier, inversion of control, soa, client-server, mvc, mvp, mvvm, cloud computing.
 
+_____________________________________________________
+Architectural patterns:
+Front controller
+Interceptor
+MVC 
+n-tier
+Specification
+Publish–subscribe
+Naked objects 
+Service locator 
+Active record 
+Identity map 
+Data access object 
+Data transfer object 
+ADR 
+Inversion of control
+Other patterns:	
+Blackboard 
+Business delegate 
+Composite entity 
+Dependency injection 
+Intercepting filter 
+Lazy loading 
+Mock object 
+Null object 
+Object pool 
+Servant 
+Twin Type tunnel
 
-
+ref: https://en.wikipedia.org/wiki/Architectural_pattern
+_________________________________________________________
 
 no meu ponto de vista os seguintes padrões são os que considero que possivelmente estão ser usados pelo optalanner:
   1. Multi-Tier
   2. Inversion Of Control
   3. Client Server
   4. Coud Computing ???
-  5. Domain Driven Design
+  5. Naked Object
   
-Para ja começarei pelo aquele que me parece ser o mais provavel:
+Tendo em consideração de que um software pode seguir um ou + padrões:
+começarei, em ordem, naqueles que me parecem ser os mais provaveis (o primeiro é o mais provavel e o ultimo o menos):
 
 1. Inversion Of Control (sub-patterns: dependency injectio; service locator)
-1.1 descrição do padrão
-é um padrão arquitetural usado para desacopular components e camadas num sistema. 
-este distribui o controlo do programa para uma framework em vez do utilizador.
-segundo a microsoft o problema associado à criação deste padrão é o seguinte - quando existem dependencias em serviços ou components cuja implementação é especificada em tempo-real.
+  1.1 descrição do padrão
+  é um padrão arquitetural usado para desacopular components e camadas num sistema. 
+  este distribui o controlo do programa para uma framework em vez do utilizador.
+  segundo a microsoft o problema associado à criação deste padrão é o seguinte - quando existem dependencias em serviços ou components cuja implementação é especificada em tempo-real.
 
-1.2 padrão no optaplanner
+  1.2 padrão no optaplanner
+  visto que o optaplanner consiste numa framework da qual o utilizador utiliza para chegar a uma solução ótima e
+  o utilizador tem de definir as classes de modelo, utilizando as anotações do optaplanner. ainda tem de definir as condições, a classe de solução, o método de cáculo do score (quanto maior o score, melhor é a solução) implementando uma interface.
 
-visto que o optaplanner consiste numa framework da qual o utilizador utiliza para chegar a uma solução ótima e
-o utilizador tem de definir as classes de modelo, utilizando as anotações do optaplanner. ainda tem de definir as condições, a classe de solução, o método de cáculo do score (quanto maior o score, melhor é a solução) implementando uma interface.
+  o optaplanner concentra em si o controlo do programa, apesar do utilizador definir as instruções e algoritmos.
 
-o optaplanner concentra em si o controlo do programa, apesar do utilizador definir as instruções e algoritmos.
+2. Naked Object
+  2.1 descrição
+      The solution to the dilemma posed at the end of the previous chapter is to make the View and
+    Controller roles (as originally defined in MVC) completely generic. In such an approach a
+    business application is written solely in terms of the domain entity (i.e. Model) objects. The
+    presentation layer, which permits the user to view those objects and to invoke behaviours on them,
+    would be provided automatically. The author has dubbed this concept ‘naked objects’, because as
+    far as the user is concerned he or she is viewing and manipulating the ‘naked’ business domain
+    objects. 
+    
+    https://isis.apache.org/resources/thesis/Pawson-Naked-Objects-thesis.pdf
+    
+  2.2 padrão no optaplanner
+    Apesar deste padrão servir + para abstrair a interface do dominio, no optaplanner a interface seria substituida por outra camanda, o processamente de dados.
+    O optaplanner é bastante ágil no que toca aos problemas que pode resolver:
+        Employee shift rostering: timetabling nurses, repairmen, ...
+        Agenda scheduling: scheduling meetings, appointments, maintenance jobs, advertisements, ...
+        Educational timetabling: scheduling lessons, courses, exams, conference presentations, ...
+        Vehicle routing: planning vehicles (trucks, trains, boats, airplanes, ...) with freight and/or people
+        Bin packing: filling containers, trucks, ships and storage warehouses, but also cloud computers nodes, ...
+        Job shop scheduling: planning car assembly lines, machine queue planning, workforce task planning, ...
+        Cutting stock: minimizing waste while cutting paper, steel, carpet, ...
+        Sport scheduling: planning football leagues, baseball leagues, ...
+        Financial optimization: investment portfolio optimization, risk spreading, ...
+    
+  
+
 
 
 
